@@ -1,0 +1,7 @@
+<ng-template #alertTemplate>
+  <h1 matDialogTitle *ngIf="alert.title" [innerHTML]="alert.title"></h1>
+  <div mat-dialog-content>{{alert.text}}</div>
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" (click)="ok()">Ok</button>
+  </div>
+</ng-template>

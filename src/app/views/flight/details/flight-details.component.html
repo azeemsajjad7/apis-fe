@@ -1,0 +1,86 @@
+<div class="flex flex-col flex-auto w-full overflow-y-auto">
+  <div
+    class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-indigo-700 text-indigo-50"
+  >
+    <div class="text-lg font-medium">Flight Details</div>
+    <button
+      mat-icon-button
+      class="mat-focus-indicator mat-icon-button mat-button-base"
+      mat-dialog-close
+    >
+      <span class="mat-button-wrapper">
+        <mat-icon>close</mat-icon>
+      </span>
+      <span
+        matripple=""
+        class="mat-ripple mat-button-ripple mat-button-ripple-round"
+      ></span>
+      <span class="mat-button-focus-overlay"></span>
+    </button>
+  </div>
+  <div class="w-full h-full p-16">
+    <div *ngIf="data.hops.length > 1">
+      <div *ngFor="let item of data.hops; let i = index">
+        <div class="flex items-center">
+          <div class="flex-1">
+            <div class="flex flex-row p-2">
+              <div>
+                <img [src]="data.flightImageUrl" alt="flightImageUrl" />
+              </div>
+              <div class="font-bold ml-4">
+                <div>
+                  {{ item.airline }}
+                </div>
+                <div>{{ item.airlineCode }} - {{ item.flightNumber }}</div>
+              </div>
+            </div>
+            <div class="flex flex-col font-light">
+              <div>{{ item.class }}</div>
+              <div>Airbus {{ item.aircraftType }}</div>
+            </div>
+          </div>
+          <div class="flex-1">
+            <div class="text-xl font-medium mb-2">
+              {{ item.departureTimeAirport }}
+            </div>
+            <div class="font-light">
+              <span *ngIf="item.departureTerminal">Terminal</span>
+              {{ item.departureTerminal
+              }}<span *ngIf="item.departureTerminal">, </span>
+              {{ item.origin_airport }},
+              {{ item.origin_city }}
+            </div>
+          </div>
+          <div class="flex-1 flex-col text-center">
+            <div class="text-slate-400">{{ item.duration }}</div>
+            <img
+              class="m-auto"
+              src="https://d274ft55l0imju.cloudfront.net/flights/icons/srp_arrow.svg"
+              alt=""
+            />
+          </div>
+          <div class="flex-1">
+            <div class="text-xl font-medium mb-2">
+              {{ item.arrivalTimeAirport }}
+            </div>
+            <div class="font-light">
+              <span *ngIf="item.arrivalTerminal">Terminal</span>
+              {{ item.arrivalTerminal
+              }}<span *ngIf="item.arrivalTerminal">, </span>
+              {{ item.destination_airport }},
+              {{ item.destination_city }}
+            </div>
+          </div>
+          <div class="flex-1 text-right">
+            <span class="w-fit border border-green-400 rounded bg-green-200">{{
+              data.refundable_text
+            }}</span>
+          </div>
+        </div>
+        <div *ngIf="i != data.hops.length - 1" class="text-center my-4">
+          Layover Time {{ data.hops[i + 1].layover }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

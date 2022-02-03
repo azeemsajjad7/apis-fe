@@ -1,0 +1,42 @@
+<!-- <mat-card
+  class="grid gap-4 grid-cols-3 p-2 items-center text-xl"
+  *ngFor="let item of dataSource; let i = index"
+>
+  <div class="place-content-center">
+    <button mat-mini-fab disabled>{{ i + 1 }}</button>
+  </div>
+  <div class="flex p-2">
+    <div class="p-2">
+      <div class="p-2 font-extrabold">{{ item.name }}</div>
+      <div class="p-2 font-light">{{ item.englishname }}</div>
+    </div>
+    <div class="p-2 flex items-center">
+      <span class="text-sky-400">{{ item.arabicname }}</span>
+    </div>
+  </div>
+</mat-card> -->
+
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-2"
+>
+  <div
+    class="border border-sky-700 rounded-3xl p-2 cursor-pointer hover:shadow-lg hover:shadow-indigo-500/50"
+    *ngFor="let item of dataSource; let i = index"
+    (click)="viewDetails(item)"
+  >
+    <div class="flex">
+      <div class="flex items-center">
+        <button mat-mini-fab disabled>{{ i + 1 }}</button>
+      </div>
+      <div class="flex p-2">
+        <div class="p-2">
+          <div class="p-2 font-extrabold">{{ item.name }}</div>
+          <div class="p-2 font-light">{{ item.englishname }}</div>
+        </div>
+        <div class="p-2 flex items-center">
+          <span class="text-sky-400">{{ item.arabicname }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

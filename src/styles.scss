@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.dialog-80 {
+  @media only screen and (max-width: 599px) {
+    width: 100%;
+    min-height: 60vh;
+  }
+
+  @media screen and (min-width: 600px) {
+    width: 80vw;
+    min-height: 40vh;
+  }
+
+  .mat-dialog-container {
+    padding: 0;
+
+    .mat-toolbar {
+      flex: 1 0 auto;
+      min-height: initial;
+    }
+
+    .toolbar-bottom {
+      height: auto;
+    }
+  }
+
+  .dialog-content-wrapper {
+    max-height: 60vh;
+    display: flex;
+    flex-direction: column;
+  }
+}

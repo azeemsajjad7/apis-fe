@@ -1,0 +1,71 @@
+<div
+  class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-center flex-auto min-w-0"
+>
+  <div
+    class="md:flex md:items-center md:justify-center w-full sm:w-auto md:h-full md:w-1/2 py-8 px-4 sm:p-12 md:p-16 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none sm:bg-card"
+  >
+    <div class="w-full max-w-80 sm:w-80 mx-auto sm:mx-0">
+      <div class="w-30">
+        <div class="mt-8 text-4xl font-extrabold tracking-tight leading-tight">
+          Sign In
+        </div>
+      </div>
+      <div class="flex items-baseline mt-0.5 font-medium">
+        <div>Don't have an account?</div>
+        <a
+          href="/signup"
+          class="ml-1 text-violet-500 cursor-pointer hover:underline"
+          >Sign up</a
+        >
+      </div>
+
+      <form
+        class="mt-8"
+        [formGroup]="signInForm"
+        (ngSubmit)="signInForm.valid && signInFormSubmit()"
+      >
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="123@abc.com" formControlName="email" />
+          <mat-icon matSuffix>alternate_email</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Enter your password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <div class="inline-flex items-end justify-between w-full mt-1.5">
+          <mat-checkbox class="mat-checkbox mat-primary" id="mat-checkbox-3"
+            ><label class="mat-checkbox-layout" for="mat-checkbox-3-input"
+              >Remember Password</label
+            ></mat-checkbox
+          >
+          <a
+            class="text-md font-medium text-violet-500 cursor-pointer hover:underline"
+            >Forgot password?
+          </a>
+        </div>
+
+        <div class="mt-6">
+          <button type="submit" class="w-full rounded-lg bg-indigo-700">
+            <div class="mat-button-wrapper py-3 text-white">SignIn</div>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

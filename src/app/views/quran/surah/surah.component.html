@@ -1,0 +1,19 @@
+<form *ngIf="languageList.length > 0" [formGroup]="translation">
+  <mat-form-field appearance="outline" class="ml-2">
+    <mat-label>from</mat-label>
+    <mat-select formControlName="from">
+      <mat-option *ngFor="let language of languageList" [value]="language.name">
+        {{ language.language }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="ml-2">
+    <mat-label>to</mat-label>
+    <mat-select formControlName="to">
+      <mat-option *ngFor="let language of languageList" [value]="language.name">
+        {{ language.language }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
